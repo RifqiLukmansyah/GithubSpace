@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Github Space</string>
+    <string name="searchbarhint">Mau cari siapa?</string>
+    <string name="hintForSearch">Mau cari siapa?</string>
+    <string name="title1">Followers</string>
+    <string name="title2">Followings</string>
+    <string name="full_name">Full Name</string>
+    <string name="username">Username</string>
+    <string name="location">Location</string>
+    <string name="company">Company</string>
+    <string name="blog">Blog</string>
+    <string name="bio">Bio</string>
+    <string name="angka">0000</string>
+    <string name="githublink">urlgithub</string>
+    <string name="followers">Followers</string>
+    <string name="followings">Followings</string>
+    <string name="followersnotfound">Followers User Not Found</string>
+    <string name="followingnotfound">Following User Not Found</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+</resources>
