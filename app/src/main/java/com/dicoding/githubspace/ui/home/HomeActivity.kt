@@ -19,12 +19,15 @@ import com.dicoding.githubspace.adapter.UserListAdapter
 import com.dicoding.githubspace.data.response.Users
 import com.dicoding.githubspace.databinding.ActivityHomeBinding
 import com.dicoding.githubspace.ui.detail.DetailActivity
-import com.dicoding.githubspace.viewmodel.HomeViewModel
+import com.dicoding.githubspace.ui.favorite.FavoriteActivity
+import com.dicoding.githubspace.ui.setting.SettingActivity
+import com.dicoding.githubspace.viewmodel.home.HomeViewModel
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var userListAdapter: UserListAdapter
+
     private lateinit var rvuser: RecyclerView
     private var dataUser = listOf<Users>()
 
@@ -64,8 +67,10 @@ class HomeActivity : AppCompatActivity() {
         )[HomeViewModel::class.java]
 
         homeViewModel.user.observe(this) { user ->
-            dataUser = user
-            setDataListUser(dataUser)
+            if (user != null) {
+                dataUser = user
+                setDataListUser(dataUser)
+            }
         }
 
         homeViewModel.mainLoading.observe(this) {
@@ -79,6 +84,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setDataListUser(githubList: List<Users>) {
+        binding.textnotfound.visibility = if (githubList.isEmpty()) View.VISIBLE else View.GONE
         userListAdapter = UserListAdapter(githubList)
         binding.rvuser.apply {
             adapter = userListAdapter
@@ -127,6 +133,16 @@ class HomeActivity : AppCompatActivity() {
                 rvuser.layoutManager = GridLayoutManager(this, 2)
                 rvuser.layoutManager = GridLayoutManager(this, 2)
                 rvuser.adapter = userListAdapter
+            }
+
+            R.id.action_favorite -> {
+                val intent = Intent(this, FavoriteActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.action_setting -> {
+                val intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

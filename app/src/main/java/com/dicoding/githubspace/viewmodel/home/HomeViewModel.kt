@@ -1,4 +1,4 @@
-package com.dicoding.githubspace.viewmodel
+package com.dicoding.githubspace.viewmodel.home
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -20,11 +20,6 @@ class HomeViewModel : ViewModel() {
     val user: LiveData<List<Users>> = _user
     private val _mainLoading = MutableLiveData<Boolean>()
     val mainLoading: LiveData<Boolean> = _mainLoading
-
-    companion object {
-        const val TAG = "ViewModel"
-        const val APICode = BuildConfig.TOKEN
-    }
 
     init {
         findGithub()
@@ -73,5 +68,10 @@ class HomeViewModel : ViewModel() {
                 Log.e(TAG, "error: ${t.message}")
             }
         })
+    }
+
+    companion object {
+        const val TAG = "ViewModel"
+        const val APICode = BuildConfig.TOKEN
     }
 }

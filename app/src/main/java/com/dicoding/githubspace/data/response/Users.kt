@@ -2,20 +2,27 @@ package com.dicoding.githubspace.data.response
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity
 data class Users(
+    @PrimaryKey
+    @ColumnInfo(name = "login")
+    val login: String,
 
-    @field:SerializedName("login")
-    val login: String? = null,
-
+    @ColumnInfo(name = "avatarUrl")
     @field:SerializedName("avatar_url")
-    val avatarUrl: String? = null,
+    val avatarUrl: String?,
+
+    @ColumnInfo(name = "html_url")
     @field:SerializedName("html_url")
-    val urlgithub: String? = null,
+    val urlgithub: String?,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
+        parcel.readString()!!,
         parcel.readString(),
         parcel.readString()
     )

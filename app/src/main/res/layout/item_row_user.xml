@@ -3,7 +3,6 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
-    android:background="@color/backgroundlight"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -11,15 +10,15 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
+    android:background="?attr/colorPrimaryContainer"
     card_view:cardCornerRadius="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundlight"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgitemphoto"
@@ -61,8 +60,6 @@
             card_view:layout_constraintTop_toBottomOf="@+id/tvitemname"
             card_view:layout_constraintVertical_bias="1.0"
             tools:text="@string/githublink" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

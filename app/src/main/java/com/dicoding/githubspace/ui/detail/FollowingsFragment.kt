@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubspace.adapter.UserListAdapter
 import com.dicoding.githubspace.data.response.Users
 import com.dicoding.githubspace.databinding.FragmentFollowingsBinding
-import com.dicoding.githubspace.viewmodel.DetailViewModel
+import com.dicoding.githubspace.viewmodel.detail.DetailViewModel
 
 
 class FollowingsFragment : Fragment() {
@@ -51,7 +51,7 @@ class FollowingsFragment : Fragment() {
                 override fun onItemClicked(data: Users) {
                     val detailViewModel =
                         ViewModelProvider(requireActivity())[DetailViewModel::class.java]
-                    detailViewModel.dataUser = data.login.toString()
+                    detailViewModel.dataUser = data.login
                 }
             })
         }

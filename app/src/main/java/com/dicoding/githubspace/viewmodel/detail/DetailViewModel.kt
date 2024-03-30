@@ -1,24 +1,21 @@
-package com.dicoding.githubspace.viewmodel
+package com.dicoding.githubspace.viewmodel.detail
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dicoding.githubspace.data.repository.UserRepository
 import com.dicoding.githubspace.data.response.UserDetail
 import com.dicoding.githubspace.data.response.Users
 import com.dicoding.githubspace.data.retrofit.ApiConfig
+import com.dicoding.githubspace.viewmodel.home.HomeViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel : ViewModel() {
-    var dataUser: String = ""
-        set(value) {
-            field = value
-            getDetailUser()
-            getFollowers()
-            getFollowings()
-        }
+class DetailViewModel(application: Application) : ViewModel() {
+
     private val _userdetail = MutableLiveData<UserDetail>()
     val userdetails: LiveData<UserDetail> = _userdetail
 
@@ -30,7 +27,23 @@ class DetailViewModel : ViewModel() {
 
     private val _followings = MutableLiveData<List<Users>>()
     val followings: LiveData<List<Users>> = _followings
+    private val favoriteUserRepo: UserRepository = UserRepository(application)
+    fun allList(): LiveData<List<Users>> = favoriteUserRepo.getFavoriteUsers()
+    var dataUser: String = ""
+        set(value) {
+            field = value
+            getDetailUser()
+            getFollowers()
+            getFollowings()
+        }
 
+    fun insert(users: Users) {
+        favoriteUserRepo.insert(users)
+    }
+
+    fun delete(users: Users) {
+        favoriteUserRepo.delete(users)
+    }
 
     private fun getDetailUser() {
         _loadingDetail.value = true

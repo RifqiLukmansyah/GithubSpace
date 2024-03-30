@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.FollowingsFragment">
+    tools:context=".ui.favorite.FavoriteActivity">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvuser"
         android:layout_width="0dp"
@@ -21,19 +20,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textnotfound"
+        android:id="@+id/txt_nofav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/followingnotfound"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/followingsProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="@string/nofavorite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
