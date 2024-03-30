@@ -1,2 +1,2 @@
-# GithubSpace
- Submission Awal : Aplikasi GitHub User (Navigation dan API)
+# Github Space
+ Submission Akhir : Aplikasi Github User ( Belajar Fundamental Aplikasi Android )
